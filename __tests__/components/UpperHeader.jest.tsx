@@ -8,7 +8,12 @@ describe("<UpperHeader />", () => {
     it("should render the UpperHeader component", () => {
       renderComponent();
       const headerElement = screen.getByRole('banner');
+      const appTitle = screen.getByRole('heading', { level: 1 });
+      const navElement = screen.getByRole('navigation');
+
       expect(headerElement).toBeInTheDocument();
+      expect(appTitle).toBeInTheDocument();
+      expect(navElement).toBeInTheDocument();
     });
 
     it("should not be visible on mobile devices", () => {
