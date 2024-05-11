@@ -13,3 +13,7 @@
 .secondary-bg-color {
   @apply bg-[#FF3E36];
 }
+
+.app-container {
+  @apply max-w-[1440px] px-5 pt-5 lg:px-0 lg:pt-8
+}
