@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} text-[#333333]`}>
         <UpperHeader />
-        <main>{children}</main>
+        <main className="flex max-w-[1440px] lg:px-10 lg:mt-10 mx-auto">{children}</main>
       </body>
     </html>
   );
