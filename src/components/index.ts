@@ -1,3 +1,4 @@
+import MainHeader from "./MainHeader";
 import UpperHeader from "./UpperHeader";
 
-export { UpperHeader };
+export { UpperHeader, MainHeader };
