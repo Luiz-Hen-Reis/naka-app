@@ -7,6 +7,7 @@ import CategoryItem from "./CategoryItem";
 import ProductItem from "./ProductItem";
 import ProductItemSkeleton from "./skeletons/ProductItemSkeleton";
 import CategoryItemSkeleton from "./skeletons/CategoryItemSkeleton";
+import FooterNav from "./FooterNav";
 
 export { 
     UpperHeader,
@@ -16,6 +17,7 @@ export {
     Providers,
     CategoryItem,
     ProductItem,
+    FooterNav,
     ProductItemSkeleton,
     CategoryItemSkeleton
  };

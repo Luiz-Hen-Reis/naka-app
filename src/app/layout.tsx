@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers, UpperHeader } from "@/components";
+import { FooterNav, Providers, UpperHeader } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({
           <Providers>
             <UpperHeader />
             <main className="flex flex-col max-w-[1440px] lg:px-10 lg:mt-10 mx-auto">{children}</main>
+            <FooterNav />
           </Providers>
       </body>
     </html>
