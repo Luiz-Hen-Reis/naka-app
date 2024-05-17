@@ -1,6 +1,10 @@
 "use client";
 
-import { CategoryItem, CategoryItemSkeleton, MainHeader, SearchItemsBar } from "@/components";
+import { 
+  CategoryItem, 
+  CategoryItemSkeleton, 
+  MainHeader, 
+  SearchItemsBar } from "@/components";
 import { useGetProducts } from "@/hooks";
 
 export default function Home() {
