@@ -1,4 +1,4 @@
-import { iconsArray } from "@/utils";
+import { iconsArray } from "@/helpers";
 
 export default function FooterNav() {
   return (

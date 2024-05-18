@@ -1,5 +1,5 @@
 import { Product } from "@/types";
-import { API_URI } from "@/utils";
+import { API_URI } from "@/helpers";
 
 interface ProductItemProps extends Product {}
 

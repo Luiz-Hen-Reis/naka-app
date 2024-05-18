@@ -1,7 +1,7 @@
 import { FooterNav } from '@/components';
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
-import { iconsArray } from '@/utils';
+import { iconsArray } from '@/helpers';
 
 describe('<FooterNav />', () => {
     beforeEach(() => {

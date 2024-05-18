@@ -1,5 +1,5 @@
 import { ApiData } from "@/types";
-import { API_URI } from "@/utils";
+import { API_URI } from "@/helpers";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
 
