@@ -1,7 +1,10 @@
-import { ApiData } from "@/types";
+"use client";
+
+import { ApiData, Category } from "@/types";
 import { API_URI } from "@/helpers";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
+import { useSearchContext } from "./useSearchContext";
 
 
 const fetchProducts = async () => {
@@ -16,8 +19,22 @@ export function useGetProducts() {
     queryKey: ['products'],
   });
 
-  return {
-    ...query,
-    data: query.data,
+  const { search } = useSearchContext();
+
+  if (search !== "") {
+    const filteredBySearch: Category[] = query.data?.categories.map((category) => ({
+      ...category,
+      products: category.products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()))
+    })).filter((category) => category.products.length > 0) || [];
+
+    return {
+      ...query,
+      data: filteredBySearch
+    };
+  } else {
+    return {
+      ...query,
+      data: query.data?.categories
+    }
   }
 }
