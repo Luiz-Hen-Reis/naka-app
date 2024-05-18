@@ -1,10 +1,11 @@
 "use client";
 
+import { ReactNode, createContext, useState } from "react";
+
 type Props = {
     children: ReactNode;
 }
 
-import { ReactNode, createContext, useState } from "react";
 
 export const ModalsContext = createContext({
     deliveryMethodModalIsOpen: false,
