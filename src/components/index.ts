@@ -8,6 +8,7 @@ import ProductItem from "./ProductItem";
 import ProductItemSkeleton from "./skeletons/ProductItemSkeleton";
 import CategoryItemSkeleton from "./skeletons/CategoryItemSkeleton";
 import FooterNav from "./FooterNav";
+import StickySearchBar from "./StickySearchBar";
 
 export { 
     UpperHeader,
@@ -19,5 +20,6 @@ export {
     ProductItem,
     FooterNav,
     ProductItemSkeleton,
-    CategoryItemSkeleton
+    CategoryItemSkeleton,
+    StickySearchBar
  };
