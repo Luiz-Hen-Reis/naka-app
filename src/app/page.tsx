@@ -27,9 +27,10 @@ export default function Home() {
           <CategoryItemSkeleton />
         ) : (
           <>
-            {data?.categories.map((category) => (
-              <CategoryItem {...category} key={category.category_id} />
-            ))}
+             { data?.map((category) => (
+                <CategoryItem {...category} key={category.category_id} />
+              ))
+              }
           </>
         )}
       </div>
