@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={`${inter.className} text-[#333333]`}>
           <Providers>
             <UpperHeader />
-            <main className="flex flex-col max-w-[1440px] lg:px-10 lg:mt-10 mx-auto">{children}</main>
+            <main className="flex flex-col max-w-[1440px] lg:px-10 lg:mt-10 mx-auto mb-32">{children}</main>
             <FooterNav />
           </Providers>
       </body>
