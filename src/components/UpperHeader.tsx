@@ -1,7 +1,10 @@
+import { InputSearchItems } from "./ui";
+
 export default function UpperHeader() {
   return (
-    <header className="hidden md:flex justify-between items-center py-5 px-4 border-b-2 shadow-sm">
+    <header className="hidden md:flex justify-between items-center py-5 px-4 border-b-2 shadow-sm sticky top-0 z-20 bg-white gap-4">
         <h1 className="font-bold text-lg">Naka App</h1>
+        <InputSearchItems />
         <nav>
             <ul className="flex justify-between items-center gap-4">
                 <li className="cursor-pointer">
