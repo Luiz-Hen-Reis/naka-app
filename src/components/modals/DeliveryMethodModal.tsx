@@ -1,11 +1,11 @@
 "use client";
 
-import { useModalsContext } from "@/hooks";
+import { useAppContext } from "@/hooks";
 import DeliveryMethodOption from "./utils/DeliveryMethodOption";
 import { useEffect, useRef, useState } from "react";
 
 export default function DeliveryMethodModal() {
-  const { handleCloseDeliveryMethodModal } = useModalsContext();
+  const { handleCloseDeliveryMethodModal } = useAppContext();
   const modalRef = useRef<HTMLDivElement>(null);
   const [selectedOption, setSelectedOption] = useState<"Delivery" | "Take Away">("Delivery");
 
@@ -26,7 +26,7 @@ export default function DeliveryMethodModal() {
 
   const handleOptionSelect = () => {
     console.log("Opção de delivery escolhida: ", selectedOption);
-    handleCloseDeliveryMethodModal();
+    handleCloseDeliveryMethodModal()
   }
 
   return (
