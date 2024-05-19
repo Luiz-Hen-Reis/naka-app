@@ -7,11 +7,11 @@ import {
   SearchItemsBar, 
   StickySearchBar
 } from "@/components";
-import { useCheckScrollPosition, useGetProducts } from "@/hooks";
+import { useAppContext, useGetProducts } from "@/hooks";
 
 export default function Home() {
   const { data, isLoading } = useGetProducts();
-  const { isStickyVisible, ref } = useCheckScrollPosition();
+  const { isStickyVisible, ref } = useAppContext();
 
   return (
     <>

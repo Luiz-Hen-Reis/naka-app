@@ -4,8 +4,7 @@ import { ApiData, Category } from "@/types";
 import { API_URI } from "@/helpers";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
-import { useSearchContext } from "./useSearchContext";
-
+import { useAppContext } from "./useAppContext";
 
 const fetchProducts = async () => {
   const response = await axios.get<ApiData>(`${API_URI}/api/v1/categories`);
@@ -19,7 +18,7 @@ export function useGetProducts() {
     queryKey: ['products'],
   });
 
-  const { search } = useSearchContext();
+  const { search } = useAppContext();
 
   if (search !== "") {
     const filteredBySearch: Category[] = query.data?.categories.map((category) => ({

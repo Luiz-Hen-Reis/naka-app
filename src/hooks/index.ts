@@ -1,11 +1,7 @@
 import { useGetProducts } from "./useGetProducts";
-import { useModalsContext } from "./useModalsContext";
-import { useCheckScrollPosition } from "./useCheckScrollPosition";
-import { useSearchContext } from "./useSearchContext";
+import { useAppContext } from "./useAppContext";
 
 export { 
-    useModalsContext, 
+    useAppContext, 
     useGetProducts, 
-    useCheckScrollPosition,
-    useSearchContext
  };
