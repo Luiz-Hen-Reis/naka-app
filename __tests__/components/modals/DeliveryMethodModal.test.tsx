@@ -1,6 +1,7 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DeliveryMethodModal from '@/components/modals/DeliveryMethodModal';
+import { AppContextProvider } from '@/contexts/appContext';
 
 describe("<DeliveryMethodModal />", () => {
     it('should render the DeliveryMethodModal component', () => {
@@ -12,7 +13,11 @@ describe("<DeliveryMethodModal />", () => {
       });
       
       it('should select option "Delivery" correctly', async () => {
-        const { getByText } = render(<DeliveryMethodModal />);
+        const { getByText } = render(
+          <AppContextProvider>
+            <DeliveryMethodModal />
+          </AppContextProvider>
+        );
         const spy = jest.spyOn(console, 'log').mockImplementation(() => {});
 
         fireEvent.click(getByText('Delivery'));
@@ -23,7 +28,11 @@ describe("<DeliveryMethodModal />", () => {
       });
       
       it('should select option "Take Away" correctly', async () => {
-        const { getByText } = render(<DeliveryMethodModal />);
+        const { getByText } = render(
+          <AppContextProvider>
+            <DeliveryMethodModal />
+          </AppContextProvider>
+        );
         const spy = jest.spyOn(console, 'log').mockImplementation(() => {});
 
         fireEvent.click(getByText('Take Away'));
