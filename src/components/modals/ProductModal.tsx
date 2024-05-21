@@ -3,6 +3,7 @@
 import { Product } from "@/types";
 import { API_URI } from "@/helpers";
 import { useState } from "react";
+import { Button } from "../ui";
 
 interface ProductModalProps extends Product {
   onClose: () => void;
@@ -48,11 +49,8 @@ export default function ProductModal({ name, price, description, image_url, onCl
                         &#43;
                       </button>
                     </div>
-
-                    <button className="text-white secondary-bg-color my-2 py-4 px-2 rounded-sm shadow-md md:flex md:justify-between md:items-center text-lg md:w-64">Añadir <span>$ {price}</span></button>
-
+                      <Button className="md:flex md:justify-between md:items-center text-lg md:w-64">Añadir <span>$ {price}</span></Button>
                     </div>
-
                 </div>
                 
               </div>
