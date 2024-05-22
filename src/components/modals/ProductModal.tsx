@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/types";
+import { BagProduct, Product } from "@/types";
 import { API_URI } from "@/helpers";
 import { useState } from "react";
 import { Button } from "../ui";
@@ -9,11 +9,19 @@ interface ProductModalProps extends Product {
   onClose: () => void;
 }
 
-export default function ProductModal({ name, price, description, image_url, onClose }: ProductModalProps) {
+export default function ProductModal({ id, name, price, description, image_url, onClose }: ProductModalProps) {
     const [quantity, setQuantity] = useState(1);
 
     const increaseQuantity = () => setQuantity(quantity + 1);
     const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
+
+    const chosenProduct: BagProduct  = { id, name, price, description, image_url, quantity };
+
+    const handleSelectProduct = () => {
+      console.log(chosenProduct);
+      onClose();
+    }
+    
   
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-end md:items-center z-50">
@@ -49,7 +57,7 @@ export default function ProductModal({ name, price, description, image_url, onCl
                         &#43;
                       </button>
                     </div>
-                      <Button className="md:flex md:justify-between md:items-center text-lg md:w-64">Añadir <span>$ {price}</span></Button>
+                      <Button className="md:flex md:justify-between md:items-center text-lg md:w-64" onClick={handleSelectProduct}>Añadir <span>$ {price}</span></Button>
                     </div>
                 </div>
                 
