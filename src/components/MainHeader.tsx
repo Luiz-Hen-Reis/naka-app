@@ -1,6 +1,6 @@
 export default function MainHeader() {
   return (
-    <header className="w-full flex flex-col">
+    <header className="w-full flex flex-col lg:mt-10">
         <div data-testid="banner" className="w-full h-28 md:h-48 rounded-md bg-[url('/assets/images/banner.png')] bg-center bg-cover">
         </div>
         <div className="app-container">
