@@ -8,10 +8,6 @@ export const iconsArray = [
         iconName: "Pedidos",
     },
     {
-        path: "/assets/icons/bag_black.svg",
-        iconName: "Bolsa"
-    },
-    {
         path: "/assets/icons/profile.svg",
         iconName: "Perfil",
     }
