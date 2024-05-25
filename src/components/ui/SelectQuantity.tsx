@@ -9,22 +9,33 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     quantityCounterClassName?: string;
 };
 
-export default function SelectQuantity({ quantity, increaseQuantity, decreaseQuantity, className, ...props }: Props) {
-    
+export default function SelectQuantity({ quantity, increaseQuantity, decreaseQuantity, 
+  className, 
+  buttonClassName, 
+  quantityCounterClassName, 
+  }: Props) {
+    let defaultButtonStyle = 'px-3 py-1 rounded text-lg';
 
   return (
-    <div className={cn("flex items-center space-x-4 border w-fit p-2", className)}>
+    <div className={cn("flex items-center border w-fit p-2 md:space-y-2", className)}>
         <button 
         onClick={decreaseQuantity} 
-        className={`px-3 py-1 rounded text-lg ${quantity !== 1 ? 'secondary-text-color' : 'cursor-not-allowed'}`}
+        className={cn(defaultButtonStyle, buttonClassName, {
+          'secondary-text-color': quantity !== 1,
+          'cursor-not-allowed': quantity === 1,
+        })}
         disabled={quantity === 1}
         >
         -
         </button>
-        <span className="font-bold text-xl w-6 h-6 text-center">{quantity}</span>
+          <span className={cn("font-bold text-xl w-6 h-6 text-center", quantityCounterClassName)}>{quantity}</span>
         <button 
         onClick={increaseQuantity} 
-        className="px-3 py-1 rounded text-lg secondary-text-color">
+        className={cn(defaultButtonStyle, buttonClassName, {
+          'secondary-text-color': quantity < 8,
+          'text-black cursor-not-allowed': quantity === 8,
+        })}
+        >
         &#43;
         </button>
     </div>
