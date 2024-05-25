@@ -5,7 +5,7 @@ export default function EmptyBag() {
             <img src="/assets/icons/bag_2.svg" alt="empty bag" />
         </div>
 
-        <span>Tu bolsa esta vazia</span>
+        <span>Tu bolsa esta vacia</span>
     </div>
   )
 }
