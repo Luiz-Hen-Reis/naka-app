@@ -2,10 +2,15 @@ import { FooterNav } from '@/components';
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 import { iconsArray } from '@/helpers';
+import { AppContextProvider } from '@/contexts/appContext';
 
 describe('<FooterNav />', () => {
     beforeEach(() => {
-        render(<FooterNav />);
+        render(
+            <AppContextProvider>
+                <FooterNav />
+            </AppContextProvider>
+        );
     })
 
     it("should render the FooterNav component", () => {

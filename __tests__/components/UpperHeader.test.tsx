@@ -1,9 +1,15 @@
 import { UpperHeader } from '@/components';
+import { AppContextProvider } from '@/contexts/appContext';
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 
 describe("<UpperHeader />", () => {
-    const renderComponent = () => render(<UpperHeader />);
+
+    const renderComponent = () => render(
+      <AppContextProvider>
+        <UpperHeader />
+      </AppContextProvider>
+    );
 
     it("should render the UpperHeader component", () => {
       renderComponent();
