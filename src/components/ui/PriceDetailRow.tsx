@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function PriceDetailRow({ label, value, className }: Props) {
   return (
-    <div className={cn('flex justify-between', className)}>
+    <div className={cn('flex justify-between text-sm', className)}>
         <div>{label}</div>
         <div>$ {value}</div>
     </div>
