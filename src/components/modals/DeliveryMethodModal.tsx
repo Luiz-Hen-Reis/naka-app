@@ -3,11 +3,12 @@
 import { useAppContext } from "@/hooks";
 import DeliveryMethodOption from "./utils/DeliveryMethodOption";
 import { useEffect, useRef, useState } from "react";
+import { IDeliveryMethod } from "@/types";
 
 export default function DeliveryMethodModal() {
-  const { handleCloseDeliveryMethodModal } = useAppContext();
+  const { handleCloseDeliveryMethodModal, handleChangeDeliveryMethod, deliveryMethod } = useAppContext();
   const modalRef = useRef<HTMLDivElement>(null);
-  const [selectedOption, setSelectedOption] = useState<"Delivery" | "Take Away">("Delivery");
+  const [selectedOption, setSelectedOption] = useState<IDeliveryMethod>(deliveryMethod);
 
   const handleClickOutside = (e: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -22,11 +23,11 @@ export default function DeliveryMethodModal() {
     };
   }, []);
 
-  const handleToggleOption = (option: "Delivery" | "Take Away") => setSelectedOption(option);
+  const handleToggleOption = (option: IDeliveryMethod) => setSelectedOption(option);
 
   const handleOptionSelect = () => {
-    console.log("Opção de delivery escolhida: ", selectedOption);
-    handleCloseDeliveryMethodModal()
+    handleChangeDeliveryMethod(selectedOption);
+    handleCloseDeliveryMethodModal();
   }
 
   return (
