@@ -4,6 +4,7 @@ import CloseButton from "./CloseButton";
 import SelectQuantity from "./SelectQuantity";
 import EmptyBag from "./EmptyBag";
 import PriceDetailRow from "./PriceDetailRow";
+import FooterIcon from "./FooterIcon";
 
 export { 
     InputSearchItems,
@@ -11,5 +12,6 @@ export {
     CloseButton,
     SelectQuantity,
     EmptyBag,
-    PriceDetailRow
+    PriceDetailRow,
+    FooterIcon
  };
