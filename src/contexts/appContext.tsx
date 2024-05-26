@@ -74,7 +74,7 @@ export const AppContextProvider = ({ children }: Props) => {
                 search,
                 handleSearch,
                 bag,
-                handleBag
+                handleBag,
             }}>
             {children}
         </AppContext.Provider>
