@@ -8,11 +8,13 @@ import { useBag } from "@/hooks";
 
 interface ProductModalProps extends Product {
   onClose: () => void;
+  isUpdateProduct?: boolean;
+  currentQuantity?: number;
 }
 
-export default function ProductModal({ id, name, price, description, image_url, onClose }: ProductModalProps) {
-    const [quantity, setQuantity] = useState(1);
-    const { addItemToBag } = useBag();
+export default function ProductModal({ id, name, price, description, image_url, onClose, isUpdateProduct, currentQuantity }: ProductModalProps) {
+    const [quantity, setQuantity] = useState(currentQuantity ? currentQuantity : 1);
+    const { addItemToBag, updateItemQuantity } = useBag();
 
     const increaseQuantity = () => setQuantity(quantity  === 8 ? quantity : quantity + 1);
     const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
@@ -23,6 +25,11 @@ export default function ProductModal({ id, name, price, description, image_url, 
       addItemToBag(chosenProduct);
       onClose();
     }
+
+    const handleUpdateProduct = () => {
+      updateItemQuantity(quantity, id);
+      onClose();
+    } 
   
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-end md:items-center z-50">
@@ -48,9 +55,17 @@ export default function ProductModal({ id, name, price, description, image_url, 
                         quantityCounterClassName="text-md"
                       />
                     
-                      <Button className="flex-1 text-sm md:flex md:justify-between md:items-center md:text-base md:px-4" onClick={handleAddProductToBag}>
-                        Añadir <span>$ {quantity * price}</span>
-                      </Button>
+                      {isUpdateProduct ? (
+                          <Button className="flex-1 text-sm md:flex md:justify-between md:items-center md:text-base md:px-4" onClick={handleUpdateProduct}>
+                            Actualizar <span>$ {quantity * price}</span>
+                          </Button>
+                        ) : (
+                          <Button className="flex-1 text-sm md:flex md:justify-between md:items-center md:text-base md:px-4" onClick={handleAddProductToBag}>
+                            Añadir <span>$ {quantity * price}</span>
+                          </Button>
+                        )
+                      }
+                      
                     </div>
                 </div>
                 
