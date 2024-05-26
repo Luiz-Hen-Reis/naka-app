@@ -10,6 +10,8 @@ import CategoryItemSkeleton from "./skeletons/CategoryItemSkeleton";
 import FooterNav from "./FooterNav";
 import StickySearchBar from "./StickySearchBar";
 import ProductModal from "./modals/ProductModal";
+import ShoppingBag from "./ShoppingBag";
+import BagProductItem from "./BagProductItem";
 
 export { 
     UpperHeader,
@@ -23,5 +25,7 @@ export {
     ProductItemSkeleton,
     CategoryItemSkeleton,
     StickySearchBar,
-    ProductModal
+    ProductModal,
+    ShoppingBag,
+    BagProductItem
  };
