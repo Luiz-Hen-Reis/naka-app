@@ -1,6 +1,6 @@
 "use client";
 
-import { BagProduct } from "@/types";
+import { BagProduct, IDeliveryMethod } from "@/types";
 import { 
     ChangeEvent,
     MutableRefObject,
@@ -26,6 +26,8 @@ type AppContextType = {
     handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
     bag: BagProduct[];
     handleBag: (newItem: BagProduct[]) => void;
+    deliveryMethod: IDeliveryMethod;
+    handleChangeDeliveryMethod: (selectedOption : IDeliveryMethod) => void;
 }
 
 export const AppContext = createContext({} as AppContextType);
@@ -36,6 +38,7 @@ export const AppContextProvider = ({ children }: Props) => {
     const [shoppingBagIsOpen, setShoppingBagIsOpen] = useState<boolean>(false);
     const [isStickyVisible, setIsStickyVisible] = useState<boolean>(false);
     const [bag, setBag] = useState<BagProduct[]>([]);
+    const [deliveryMethod, setDeliveryMethod] = useState<IDeliveryMethod>('Delivery');
     const [search, setSearch] = useState<string>('');
     const ref = useRef<HTMLDivElement | null>(null);
  
@@ -47,6 +50,8 @@ export const AppContextProvider = ({ children }: Props) => {
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
 
     const handleBag = (items: BagProduct[]) => setBag(items);
+
+    const handleChangeDeliveryMethod = (selectedOption: IDeliveryMethod) => setDeliveryMethod(selectedOption);
     
     useEffect(() => {
         const handleScroll = () => {
@@ -64,6 +69,8 @@ export const AppContextProvider = ({ children }: Props) => {
         
     return (
         <AppContext.Provider value={{ 
+                deliveryMethod,
+                handleChangeDeliveryMethod,
                 deliveryMethodModalIsOpen, 
                 shoppingBagIsOpen,
                 handleOpenDeliveryMethodModal, 
