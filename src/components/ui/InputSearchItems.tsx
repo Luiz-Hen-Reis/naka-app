@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppContext } from "@/hooks";
+import { Search } from "lucide-react";
 import { InputHTMLAttributes } from "react";
 
 interface InputSearchItemsProps extends InputHTMLAttributes<HTMLInputElement> {};
@@ -10,7 +11,7 @@ export default function InputSearchItems({ ...props }: InputSearchItemsProps) {
 
   return (
         <div className="rounded-md flex-1 flex items-center lg:gap-4 bg-[#e8e8e8] border-2 h-11 lg:h-16 lg:bg-transparent lg:border-2 lg:p-4">
-            <img src="/assets/icons/search.svg" alt="search" className="w-4 h-4" />
+            <Search color="#FF3E36" />
             <input
                 {...props}
                 type="text"

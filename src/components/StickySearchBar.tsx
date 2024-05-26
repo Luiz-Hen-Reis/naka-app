@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { InputSearchItems } from "./ui";
+import { Search } from "lucide-react";
 
 export default function StickySearchBar() {
     const [openSearchBar, setOpenSearchBar] = useState(false);
@@ -14,7 +15,7 @@ export default function StickySearchBar() {
             <span></span>
             <h1 className="font-bold text-lg ">Naka App</h1>
             <button onClick={handleToggleSearchBar}>
-                <img src="/assets/icons/search.svg" alt="Buscar" className="w-6 h-6" />
+                <Search color="#FF3E36" />
             </button>
         </div>
             <div>{ openSearchBar && <InputSearchItems /> }</div>

@@ -2,6 +2,7 @@
 
 import { useAppContext, useBag } from "@/hooks";
 import { InputSearchItems } from "./ui";
+import { LogIn, ShoppingBag as ShoppingBagIcon } from "lucide-react";
 
 export default function UpperHeader() {
     const { isStickyVisible, handleToggleShoppingBag } = useAppContext();
@@ -14,10 +15,10 @@ export default function UpperHeader() {
         <nav>
             <ul className="flex justify-between items-center gap-4" onClick={handleToggleShoppingBag}>
                 <li className="cursor-pointer">
-                    <img src="/assets/icons/sign_in.svg" alt="sign-in/login" className="w-7 h-7" />
+                    <LogIn color="#FF3E36" />
                 </li>
-                <li className={`cursor-pointer flex items-center  ${bag.length > 0 ? 'secondary-bg-color rounded-3xl p-2 text-white' : ''}`}>
-                    <img src="/assets/icons/bag.svg" alt="shopping bag" className="w-7 h-7" />
+                <li className={`cursor-pointer flex items-center gap-2 ${bag.length > 0 ? 'secondary-bg-color rounded-3xl p-2 text-white' : ''}`}>
+                    <ShoppingBagIcon width={20} height={20} />
                     <div className="flex flex-col text-xs">
                         <span>$ {subtotal}</span>
                         <span>{bag.length} itens</span>
