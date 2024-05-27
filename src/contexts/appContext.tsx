@@ -28,6 +28,8 @@ type AppContextType = {
     handleBag: (newItem: BagProduct[]) => void;
     deliveryMethod: IDeliveryMethod;
     handleChangeDeliveryMethod: (selectedOption : IDeliveryMethod) => void;
+    authModalIsOpen: boolean;
+    handleToggleAuthModal: () => void;
 }
 
 export const AppContext = createContext({} as AppContextType);
@@ -40,6 +42,7 @@ export const AppContextProvider = ({ children }: Props) => {
     const [bag, setBag] = useState<BagProduct[]>([]);
     const [deliveryMethod, setDeliveryMethod] = useState<IDeliveryMethod>('Delivery');
     const [search, setSearch] = useState<string>('');
+    const [authModalIsOpen, setAuthModalIsOpen] = useState<boolean>(false);
     const ref = useRef<HTMLDivElement | null>(null);
  
     const handleOpenDeliveryMethodModal = () => setDeliveryMethodModalIsOpen(true);
@@ -52,6 +55,8 @@ export const AppContextProvider = ({ children }: Props) => {
     const handleBag = (items: BagProduct[]) => setBag(items);
 
     const handleChangeDeliveryMethod = (selectedOption: IDeliveryMethod) => setDeliveryMethod(selectedOption);
+
+    const handleToggleAuthModal = () => setAuthModalIsOpen(!authModalIsOpen);
     
     useEffect(() => {
         const handleScroll = () => {
@@ -82,6 +87,8 @@ export const AppContextProvider = ({ children }: Props) => {
                 handleSearch,
                 bag,
                 handleBag,
+                authModalIsOpen,
+                handleToggleAuthModal
             }}>
             {children}
         </AppContext.Provider>
