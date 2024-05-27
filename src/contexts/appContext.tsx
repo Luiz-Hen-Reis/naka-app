@@ -1,48 +1,40 @@
 "use client";
 
-import { BagProduct, IDeliveryMethod } from "@/types";
 import { 
     ChangeEvent,
-    MutableRefObject,
     ReactNode,
     createContext,
     useEffect,
     useRef,
     useState } from "react";
 
+import { 
+    AppContextType, 
+    BagProduct, 
+    IDeliveryMethod } from "@/types";
+    
+
 type Props = {
     children: ReactNode;
-}
-
-type AppContextType = {
-    deliveryMethodModalIsOpen: boolean;
-    shoppingBagIsOpen: boolean;
-    handleOpenDeliveryMethodModal: () => void;
-    handleCloseDeliveryMethodModal: () => void;
-    handleToggleShoppingBag: () => void;
-    isStickyVisible: boolean;
-    ref: MutableRefObject<HTMLDivElement | null>;
-    search: string;
-    handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-    bag: BagProduct[];
-    handleBag: (newItem: BagProduct[]) => void;
-    deliveryMethod: IDeliveryMethod;
-    handleChangeDeliveryMethod: (selectedOption : IDeliveryMethod) => void;
-    authModalIsOpen: boolean;
-    handleToggleAuthModal: () => void;
 }
 
 export const AppContext = createContext({} as AppContextType);
 
 export const AppContextProvider = ({ children }: Props) => {
-    const [deliveryMethodModalIsOpen,
-         setDeliveryMethodModalIsOpen] = useState<boolean>(false);
+    const [deliveryMethodModalIsOpen, setDeliveryMethodModalIsOpen] = useState<boolean>(false);
+
     const [shoppingBagIsOpen, setShoppingBagIsOpen] = useState<boolean>(false);
-    const [isStickyVisible, setIsStickyVisible] = useState<boolean>(false);
+    
     const [bag, setBag] = useState<BagProduct[]>([]);
+    
     const [deliveryMethod, setDeliveryMethod] = useState<IDeliveryMethod>('Delivery');
+    
     const [search, setSearch] = useState<string>('');
+    
     const [authModalIsOpen, setAuthModalIsOpen] = useState<boolean>(false);
+    
+    const [isStickyVisible, setIsStickyVisible] = useState<boolean>(false);
+
     const ref = useRef<HTMLDivElement | null>(null);
  
     const handleOpenDeliveryMethodModal = () => setDeliveryMethodModalIsOpen(true);
@@ -75,19 +67,19 @@ export const AppContextProvider = ({ children }: Props) => {
     return (
         <AppContext.Provider value={{ 
                 deliveryMethod,
-                handleChangeDeliveryMethod,
                 deliveryMethodModalIsOpen, 
                 shoppingBagIsOpen,
+                search,
+                bag,
+                authModalIsOpen,
+                isStickyVisible,
+                ref,
+                handleChangeDeliveryMethod,
                 handleOpenDeliveryMethodModal, 
                 handleCloseDeliveryMethodModal,
                 handleToggleShoppingBag,
-                isStickyVisible,
-                ref,
-                search,
                 handleSearch,
-                bag,
                 handleBag,
-                authModalIsOpen,
                 handleToggleAuthModal
             }}>
             {children}
