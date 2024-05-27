@@ -2,8 +2,8 @@
 
 import { Product } from "@/types";
 import { API_URI } from "@/helpers";
-import ProductModal from "./modals/ProductModal";
 import { useState } from "react";
+import { ProductModal } from "./modals";
 
 interface ProductItemProps extends Product {}
 

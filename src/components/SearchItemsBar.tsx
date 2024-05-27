@@ -1,7 +1,7 @@
 import { useAppContext } from "@/hooks";
-import DeliveryMethodModal from "./modals/DeliveryMethodModal";
 import { InputSearchItems } from "./ui";
 import { Bike, ChevronDown, PersonStanding } from "lucide-react";
+import { DeliveryMethodModal } from "./modals";
 
 export default function SearchItemsBar() {
     const { deliveryMethodModalIsOpen, handleOpenDeliveryMethodModal, deliveryMethod } = useAppContext();
