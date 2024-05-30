@@ -3,9 +3,10 @@
 import { useAppContext, useBag } from "@/hooks";
 import { InputSearchItems } from "./ui";
 import { LogIn, ShoppingBag as ShoppingBagIcon } from "lucide-react";
+import { AuthModal } from "./modals";
 
 export default function UpperHeader() {
-    const { isStickyVisible, handleToggleShoppingBag } = useAppContext();
+    const { isStickyVisible, handleToggleShoppingBag, handleToggleAuthModal } = useAppContext();
     const { bag, subtotal } = useBag();
 
   return (
@@ -13,11 +14,11 @@ export default function UpperHeader() {
         <h1 className="font-bold text-lg">Naka App</h1>
         { isStickyVisible && <InputSearchItems /> }
         <nav>
-            <ul className="flex justify-between items-center gap-4" onClick={handleToggleShoppingBag}>
-                <li className="cursor-pointer">
+            <ul className="flex justify-between items-center gap-4">
+                <li className="cursor-pointer" onClick={handleToggleAuthModal}>
                     <LogIn color="#FF3E36" />
                 </li>
-                <li className={`cursor-pointer flex items-center gap-2 ${bag.length > 0 ? 'secondary-bg-color rounded-3xl p-2 text-white' : ''}`}>
+                <li className={`cursor-pointer flex items-center gap-2 ${bag.length > 0 ? 'secondary-bg-color rounded-3xl p-2 text-white' : ''}`} onClick={handleToggleShoppingBag}>
                     <ShoppingBagIcon width={20} height={20} />
                     <div className="flex flex-col text-xs">
                         <span>$ {subtotal}</span>
@@ -25,7 +26,7 @@ export default function UpperHeader() {
                     </div>
                 </li>
             </ul>
-        </nav>   
+        </nav>
     </header>
   )
 }
