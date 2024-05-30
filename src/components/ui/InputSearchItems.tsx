@@ -10,7 +10,7 @@ export default function InputSearchItems({ ...props }: InputSearchItemsProps) {
     const { search, handleSearch } = useAppContext();
 
   return (
-        <div className="rounded-md flex-1 flex items-center lg:gap-4 bg-[#e8e8e8] border-2 h-11 lg:h-16 lg:bg-transparent lg:border-2 lg:p-4">
+        <div className="rounded-md flex-1 flex items-center lg:gap-4 bg-[#e8e8e8] border-2 h-11 lg:h-16 lg:bg-transparent lg:p-4">
             <Search color="#FF3E36" />
             <input
                 {...props}
