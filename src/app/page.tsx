@@ -8,11 +8,12 @@ import {
   ShoppingBag, 
   StickySearchBar
 } from "@/components";
+import { AuthModal } from "@/components/modals";
 import { useAppContext, useGetProducts } from "@/hooks";
 
 export default function Home() {
   const { data, isLoading } = useGetProducts();
-  const { isStickyVisible, ref, shoppingBagIsOpen } = useAppContext();
+  const { isStickyVisible, ref, shoppingBagIsOpen, authModalIsOpen } = useAppContext();
 
   return (
     <>
@@ -36,6 +37,7 @@ export default function Home() {
           </>
         )}
       </div>
+      {authModalIsOpen && <AuthModal />}
     </>
   );
 }
