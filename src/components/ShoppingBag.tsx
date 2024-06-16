@@ -34,7 +34,6 @@ export default function ShoppingBag() {
                           <Button disabled={bag.length === 0} className="disabled:opacity-50">Continuar</Button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
