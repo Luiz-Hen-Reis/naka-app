@@ -12,6 +12,7 @@ import StickySearchBar from "./StickySearchBar";
 import ProductModal from "./modals/ProductModal";
 import ShoppingBag from "./ShoppingBag";
 import BagProductItem from "./BagProductItem";
+import { AuthModal } from "./modals";
 
 export { 
     UpperHeader,
@@ -27,5 +28,6 @@ export {
     StickySearchBar,
     ProductModal,
     ShoppingBag,
-    BagProductItem
+    BagProductItem,
+    AuthModal
  };
